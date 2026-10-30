@@ -11,7 +11,7 @@ Content comes from the current site preview (dev--allotar.netlify.app).
 | `platform.html` | Platform — workflow engine, dynamics sampling, allosteric discovery, closed-loop discovery |
 | `programs.html` | Programs — slideshow, approach, program pipelines |
 | `team.html` | Team and news |
-| `contact.html` | Partnerships, stats and contact form (Netlify Forms) |
+| `contact.html` | Partnerships, stats and contact form (visual only for now) |
 
 ## Run locally
 
@@ -46,8 +46,9 @@ Three.js 0.165 and Lenis 1.1.13 load from jsDelivr; fonts from Google Fonts.
 
 ## Deploy
 
-Any static host works. On Netlify, the contact form is picked up automatically (`data-netlify="true"`).
+Any static host works (Vercel: framework preset "Other", no build command, root as output).
 
 ## Not done yet
 
 - Privacy Policy and Terms of Service pages (footer links point to `#`).
+- The contact form is visual only: submitting shows a note with the contact email and sends nothing.

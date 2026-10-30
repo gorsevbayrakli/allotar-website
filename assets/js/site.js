@@ -133,22 +133,14 @@ if (slides){
   show(0); run();
 }
 
-// ---------- contact form (Netlify form, posted in place) ----------
+// ---------- contact form: visual only for now, nothing is sent ----------
 const form = $('form[name=contact]');
 if (form){
-  const msg = $('.form-msg', form), btn = $('button[type=submit]', form);
-  form.addEventListener('submit', async e => {
-    e.preventDefault(); if (!form.reportValidity()) return;
-    btn.disabled = true; btn.querySelector('span').textContent = 'Sending…';
-    const data = new URLSearchParams(new FormData(form));
-    try {
-      if (/^(localhost|127\.|$)/.test(location.hostname)) await new Promise(r => setTimeout(r, 500));   // local preview: no backend
-      else { const r = await fetch('/', {method: 'POST', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: data.toString()}); if (!r.ok) throw new Error(r.status); }
-      form.reset(); msg.textContent = 'Thank you — we will be in touch shortly.'; msg.style.color = 'var(--teal)';
-    } catch {
-      msg.textContent = 'Something went wrong. Please email contact@allotar.com.'; msg.style.color = 'var(--site)';
-    }
-    btn.disabled = false; btn.querySelector('span').textContent = 'Send message';
+  const msg = $('.form-msg', form);
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    msg.innerHTML = 'The form is not active yet. Please write to <a href="mailto:contact@allotar.com" style="color:var(--ink)">contact@allotar.com</a>.';
+    msg.style.color = 'var(--soft)';
   });
 }
 
